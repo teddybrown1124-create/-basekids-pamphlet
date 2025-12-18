@@ -1,0 +1,1316 @@
+<!DOCTYPE html>
+<html lang="ja" data-theme="light" style=""><head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BASE KIDS Pamphlet</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&amp;family=Noto+Sans+JP:wght@400;500;700&amp;family=Poppins:wght@400;600;700&amp;family=Zen+Maru+Gothic:wght@500;700&amp;display=swap" rel="stylesheet">
+    <style>
+      /* Base Reset & Variables */
+      :root {
+        --color-main: #a8d5ba;
+        --color-accent-1: #ffe5b4;
+        --color-accent-2: #b4d7e8;
+        --color-accent-3: #f4e4c1;
+        --color-base: #fafaf9;
+        --color-text: #2c3e50;
+        --color-white: #ffffff;
+        --font-heading-en: 'Poppins', sans-serif;
+        --font-heading-jp: 'Noto Sans JP', sans-serif;
+        --font-body-en: 'Inter', sans-serif;
+        --font-body-jp: '游ゴシック', 'Yu Gothic', sans-serif;
+      }
+
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+
+      body {
+        background-color: #525659; /* Preview background */
+        color: var(--color-text);
+        font-family: var(--font-body-en), var(--font-body-jp);
+        -webkit-font-smoothing: antialiased;
+        line-height: 1.6;
+      }
+
+      /* Page Layout */
+      .page {
+        width: 210mm;
+        height: 297mm;
+        background-color: var(--color-white);
+        margin: 20px auto;
+        padding: 50px 55px; /* Optimized padding */
+        position: relative;
+        overflow: hidden;
+        box-shadow: 0 10px 40px rgba(0, 0, 0, 0.15);
+        display: flex;
+        flex-direction: column;
+      }
+
+      .page::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 8px;
+        background: linear-gradient(90deg, var(--color-main) 0%, var(--color-accent-2) 50%, var(--color-accent-1) 100%);
+        opacity: 0.6;
+      }
+
+      /* Typography */
+      h1,
+      h2,
+      h3,
+      h4,
+      h5,
+      h6 {
+        font-family: var(--font-heading-en), var(--font-heading-jp);
+        line-height: 1.2;
+        letter-spacing: -0.01em;
+      }
+
+      .header-logo {
+        position: absolute;
+        top: 30px;
+        left: 50px;
+        font-family: var(--font-heading-en);
+        font-weight: 800;
+        font-size: 10px;
+        letter-spacing: 0.2em;
+        color: var(--color-text);
+        opacity: 0.3;
+        text-transform: uppercase;
+        z-index: 100;
+      }
+
+      .page-title {
+        font-size: 42px;
+        font-weight: 800;
+        margin-bottom: 30px;
+        color: var(--color-text);
+        letter-spacing: 0.05em;
+        position: relative;
+        display: inline-block;
+        text-align: center;
+        width: 100%;
+      }
+
+      .page-title::after {
+        content: '';
+        position: absolute;
+        bottom: -12px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 80px;
+        height: 4px;
+        background: linear-gradient(90deg, var(--color-main) 0%, var(--color-accent-2) 100%);
+        border-radius: 2px;
+      }
+
+      p {
+        margin-bottom: 18px;
+        text-align: center;
+        line-height: 1.9;
+        letter-spacing: 0.03em;
+      }
+
+      /* Utility Classes */
+      .text-center {
+        text-align: center;
+      }
+      .text-right {
+        text-align: right;
+      }
+      .text-white {
+        color: var(--color-white);
+      }
+      .fw-bold {
+        font-weight: 700;
+      }
+      .mb-20 {
+        margin-bottom: 20px;
+      }
+      .mt-auto {
+        margin-top: auto;
+      }
+
+      .grid-2 {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 30px;
+      }
+      .grid-3 {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        gap: 20px;
+      }
+
+      .image-container {
+        width: 100%;
+        overflow: hidden;
+        border-radius: 12px;
+        margin-bottom: 25px;
+        background-color: #eee;
+        position: relative;
+        box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+      }
+
+      .image-container::after {
+        content: '';
+        position: absolute;
+        inset: 0;
+        background: linear-gradient(180deg, rgba(0, 0, 0, 0) 60%, rgba(0, 0, 0, 0.15) 100%);
+        pointer-events: none;
+      }
+
+      .image-container img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        display: block;
+        transition: transform 0.3s ease;
+      }
+
+      /* Specific Components */
+      .table-custom {
+        width: 100%;
+        border-collapse: separate;
+        border-spacing: 0;
+        margin-top: 25px;
+        border-radius: 12px;
+        overflow: hidden;
+        box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
+      }
+      .table-custom th,
+      .table-custom td {
+        padding: 18px 20px;
+        border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+        text-align: left;
+      }
+      .table-custom th {
+        font-weight: 700;
+        width: 30%;
+        background: linear-gradient(135deg, #f8f9fa 0%, #ffffff 100%);
+        font-size: 15px;
+        letter-spacing: 0.05em;
+      }
+      .table-custom tr:last-child td {
+        border-bottom: none;
+      }
+      .table-custom tbody tr {
+        transition: background-color 0.2s ease;
+      }
+      .table-custom tbody tr:hover {
+        background-color: rgba(168, 213, 186, 0.05);
+      }
+
+      .card {
+        background: var(--color-white);
+        padding: 25px;
+        border-radius: 12px;
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+        border: none;
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .card::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 4px;
+        height: 100%;
+        background: linear-gradient(180deg, var(--color-main) 0%, var(--color-accent-2) 100%);
+      }
+
+      /* Print Settings */
+      @media print {
+        body {
+          background-color: white;
+        }
+        .page {
+          margin: 0;
+          box-shadow: none;
+          page-break-after: always;
+        }
+      }
+    </style>
+  </head>
+  <body style="">
+    <!-- 1. Cover -->
+    <section class="page" style="padding: 0; position: relative; background: linear-gradient(135deg, #fafaf9 0%, #ffffff 100%)">
+      <!-- Decorative Elements -->
+      <div style="position: absolute; top: 0; left: 0; width: 100%; height: 8px; background: linear-gradient(90deg, #a8d5ba 0%, #b4d7e8 50%, #ffe5b4 100%);"></div>
+      
+      <!-- Background Image with subtle overlay -->
+      <div style="
+          position: absolute;
+          inset: 0;
+          background-image: url('https://images.unsplash.com/photo-1503676260728-1c00da094a0b?w=2000');
+          background-size: cover;
+          background-position: center;
+          opacity: 0.08;
+        "></div>
+
+      <!-- Decorative Gradient Circles -->
+      <div style="position: absolute; top: -100px; right: -100px; width: 400px; height: 400px; background: radial-gradient(circle, rgba(168, 213, 186, 0.15) 0%, transparent 70%); border-radius: 50%;"></div>
+      <div style="position: absolute; bottom: -150px; left: -150px; width: 500px; height: 500px; background: radial-gradient(circle, rgba(180, 215, 232, 0.12) 0%, transparent 70%); border-radius: 50%;"></div>
+
+      <!-- Main Content -->
+      <div style="
+          position: relative;
+          z-index: 10;
+          height: 100%;
+          padding: 55px 65px;
+          display: flex;
+          flex-direction: column;
+          justify-content: space-between;
+        ">
+        <!-- Top Section: Location Tag -->
+        <div style="text-align: right">
+          <span style="
+              display: inline-block;
+              font-size: 10px;
+              letter-spacing: 0.2em;
+              color: #888;
+              border: 1.5px solid #ddd;
+              padding: 10px 20px;
+              border-radius: 30px;
+              font-weight: 700;
+              background: rgba(255, 255, 255, 0.8);
+              backdrop-filter: blur(10px);
+              box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+            ">
+            KASHIWA-NO-HA CAMPUS
+          </span>
+        </div>
+
+        <!-- Center Section: Main Message -->
+        <div style="text-align: center; margin-top: -100px">
+          <!-- Catchphrase -->
+          <div style="margin-bottom: 50px; position: relative">
+            <div style="position: absolute; top: -20px; left: 50%; transform: translateX(-50%); width: 2px; height: 40px; background: linear-gradient(180deg, transparent 0%, #a8d5ba 100%);"></div>
+            <p style="
+                font-size: 26px;
+                line-height: 2;
+                font-weight: 600;
+                color: #444;
+                letter-spacing: 0.1em;
+                margin-bottom: 0;
+                text-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+              ">
+              「いつか海外へ」を、<br>
+              夢で終わらせない。
+            </p>
+            <div style="width: 60px; height: 2px; background: linear-gradient(90deg, transparent 0%, #a8d5ba 50%, transparent 100%); margin: 20px auto 0;"></div>
+          </div>
+
+          <!-- Brand Name -->
+          <div style="margin-bottom: 40px; position: relative">
+            <h1 style="
+                font-size: 100px;
+                font-weight: 900;
+                line-height: 0.9;
+                letter-spacing: -0.05em;
+                color: #2c3e50;
+                margin-bottom: 20px;
+                text-shadow: 0 4px 8px rgba(0, 0, 0, 0.08);
+              ">
+              BASE<br>KIDS
+            </h1>
+            <div style="
+                width: 120px;
+                height: 6px;
+                background: linear-gradient(90deg, #a8d5ba 0%, #b4d7e8 50%, #2c3e50 100%);
+                margin: 0 auto;
+                border-radius: 3px;
+                box-shadow: 0 2px 8px rgba(168, 213, 186, 0.4);
+              "></div>
+          </div>
+
+          <!-- Subtitle -->
+          <p style="
+              font-size: 22px;
+              font-weight: 700;
+              color: #2c3e50;
+              letter-spacing: 0.12em;
+              margin-bottom: 35px;
+            ">
+            英語が、選択肢になる場所。
+          </p>
+
+          <!-- Feature Tags -->
+          <div style="display: flex; justify-content: center; gap: 12px; flex-wrap: wrap">
+            <span style="
+                background: linear-gradient(135deg, #a8d5ba 0%, #8bc5a0 100%);
+                color: white;
+                padding: 10px 24px;
+                border-radius: 30px;
+                font-size: 12px;
+                font-weight: 800;
+                letter-spacing: 0.08em;
+                box-shadow: 0 4px 12px rgba(168, 213, 186, 0.4);
+              ">
+              本格英語教育
+            </span>
+            <span style="
+                background: linear-gradient(135deg, #ffe5b4 0%, #ffd699 100%);
+                color: #2c3e50;
+                padding: 10px 24px;
+                border-radius: 30px;
+                font-size: 12px;
+                font-weight: 800;
+                letter-spacing: 0.08em;
+                box-shadow: 0 4px 12px rgba(255, 229, 180, 0.4);
+              ">
+              オーガニック給食
+            </span>
+            <span style="
+                background: linear-gradient(135deg, #b4d7e8 0%, #9ec9dd 100%);
+                color: #2c3e50;
+                padding: 10px 24px;
+                border-radius: 30px;
+                font-size: 12px;
+                font-weight: 800;
+                letter-spacing: 0.08em;
+                box-shadow: 0 4px 12px rgba(180, 215, 232, 0.4);
+              ">
+              ハワイサマースクール
+            </span>
+          </div>
+        </div>
+
+        <!-- Bottom Section: Opening Info -->
+        <div style="text-align: center; border-top: 2px solid #e0e0e0; padding-top: 30px; background: rgba(255, 255, 255, 0.7); margin: 0 -65px -55px; padding-left: 65px; padding-right: 65px; padding-bottom: 30px;">
+          <p style="font-size: 11px; color: #999; letter-spacing: 0.15em; margin-bottom: 8px; font-weight: 700">OPENING CAMPAIGN</p>
+          <p style="font-size: 18px; font-weight: 800; color: #e74c3c; margin-bottom: 0; letter-spacing: 0.05em">
+            入会金 ¥0 / 先着10名限定 / 6月まで
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- 2. Introduction -->
+    <section class="page">
+      <div class="header-logo">BASE KIDS</div>
+
+      <div style="height: 45%; margin-bottom: 35px; margin-top: 20px" class="image-container">
+        <img src="https://images.unsplash.com/photo-1594608661623-aa0bd3a69d98?w=1600" alt="Bright space" data-height-listener-added="true">
+      </div>
+
+      <h2 class="page-title">INTRODUCTION</h2>
+
+      <h3 style="font-size: 28px; margin-bottom: 25px; font-weight: 700; letter-spacing: 0.05em; background: linear-gradient(135deg, #a8d5ba 0%, #2c3e50 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">英語が、選択肢になる場所</h3>
+
+      <div style="font-size: 15px; line-height: 2; max-width: 100%; margin: 0 auto">
+        <p style="padding-left: 20px; border-left: 4px solid #a8d5ba; background: rgba(168, 213, 186, 0.05); padding: 15px 20px; border-radius: 0 8px 8px 0;">
+          「いつか海外へ」という夢を、夢のままで終わらせないために。<br>
+          BASE KIDSは、英語を単なる「学習科目」ではなく、世界とつながるための「ツール」として体験できる、新しいスタイルのアフタースクールです。
+        </p>
+        <p>
+          柏の葉キャンパスという未来志向の街で、私たちは子どもたちの可能性を最大限に引き出す環境を用意しました。
+          ここでは、ネイティブ講師との生きたコミュニケーションはもちろん、日々の生活そのものが学びの場となります。
+        </p>
+        <p>
+          さらに、成長期の子どもたちの身体を作る「食」にも徹底的にこだわりました。
+          可能な限りオーガニックな食材を使用し、添加物に頼らない安心安全な手作りの食事を提供します。
+        </p>
+        <p style="font-weight: 700; font-size: 16px; color: #2c3e50; margin-top: 25px">
+          知性と身体、その両方を健やかに育む場所。<br>
+          それが、BASE KIDSです。
+        </p>
+      </div>
+    </section>
+
+    <!-- 3. Core Value -->
+    <section class="page">
+      <div class="header-logo">BASE KIDS</div>
+      <h2 class="page-title">CORE VALUE</h2>
+
+      <div class="grid-2" style="gap: 35px; margin-top: 10px">
+        <div style="display: flex; flex-direction: column; background: linear-gradient(135deg, rgba(168, 213, 186, 0.08) 0%, rgba(255, 255, 255, 0) 100%); padding: 25px; border-radius: 16px; border: 2px solid rgba(168, 213, 186, 0.2);">
+          <div class="image-container" style="height: 220px; margin-bottom: 20px">
+            <img src="https://images.unsplash.com/photo-1503676260728-1c00da094a0b?w=1000" alt="English Education" data-height-listener-added="true">
+          </div>
+          <h3 style="font-size: 16px; color: #a8d5ba; margin-bottom: 5px; font-weight: 800; letter-spacing: 0.1em; text-transform: uppercase;">
+            Global Standard
+          </h3>
+          <h4 style="font-size: 24px; color: var(--color-text); margin-bottom: 15px; font-weight: 800">本格英語教育</h4>
+          <p style="font-size: 14px; line-height: 1.9; text-align: left">
+            「英語を学ぶ」のではなく「英語で過ごす」イマージョン環境を提供。
+            フォニックスメソッドに基づいた体系的な学習と、ネイティブ講師との日常的な対話を通じて、
+            自然な発音とコミュニケーション能力を養います。ただ話せるだけでなく、英語で考え、表現する力を育てます。
+          </p>
+        </div>
+
+        <div style="display: flex; flex-direction: column; background: linear-gradient(135deg, rgba(255, 229, 180, 0.08) 0%, rgba(255, 255, 255, 0) 100%); padding: 25px; border-radius: 16px; border: 2px solid rgba(255, 229, 180, 0.3);">
+          <div class="image-container" style="height: 220px; margin-bottom: 20px">
+            <img src="https://images.unsplash.com/photo-1512621776951-a57141f2eefd?w=1000" alt="Organic Food" data-height-listener-added="true">
+          </div>
+          <h3 style="font-size: 16px; color: #ffa500; margin-bottom: 5px; font-weight: 800; letter-spacing: 0.1em; text-transform: uppercase;">
+            Organic &amp; Healthy
+          </h3>
+          <h4 style="font-size: 24px; color: var(--color-text); margin-bottom: 15px; font-weight: 800">食へのこだわり</h4>
+          <p style="font-size: 14px; line-height: 1.9; text-align: left">
+            子どもたちの体は、食べたもので作られています。BASE
+            KIDSでは、化学調味料や保存料を極力排除し、可能な限りオーガニック食材を使用した食事を提供します。
+            心身の健康は、質の高い教育の土台です。安心して食べられる「本物の味」を通して、豊かな感性を育みます。
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- 4. Programs -->
+    <section class="page">
+      <div class="header-logo">BASE KIDS</div>
+      <h2 class="page-title">PROGRAMS</h2>
+
+      <div class="image-container" style="height: 350px">
+        <img src="https://images.unsplash.com/photo-1503454537195-1dcabb73ffb9?w=1600" alt="Kids playing" data-height-listener-added="true">
+      </div>
+
+      <div style="margin-top: 20px">
+        <div style="background: var(--color-accent-1); padding: 30px; border-radius: 8px; margin-bottom: 20px">
+          <h3 style="margin-bottom: 10px">
+            幼児コース <span style="font-size: 16px; font-weight: normal">(年中〜年長 / 4-6歳)</span>
+          </h3>
+          <p style="margin-bottom: 0">
+            遊びの中で英語に触れ、自然と耳を慣らしていくエントリーコース。<br>
+            週2回から週5回まで、ライフスタイルに合わせて選択可能です。
+            フォニックスの基礎を楽しく学びながら、英語への好奇心を育てます。
+          </p>
+        </div>
+
+        <div style="background: var(--color-accent-2); padding: 30px; border-radius: 8px">
+          <h3 style="margin-bottom: 10px">
+            小学生コース <span style="font-size: 16px; font-weight: normal">(小学1-4年生 / 6-10歳)</span>
+          </h3>
+          <p style="margin-bottom: 0">
+            放課後の時間を有効活用し、確実に英語力を伸ばすアドバンスコース。<br>
+            週3回以上の利用を基本とし、宿題サポートや様々なアクティビティを通じて、
+            「使える英語」の定着を目指します。自律的な学習習慣も身につけます。
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- 5. English Education -->
+    <section class="page">
+      <div class="header-logo">BASE KIDS</div>
+      <h2 class="page-title">ENGLISH EDUCATION</h2>
+
+      <div class="grid-2">
+        <div>
+          <h3 style="color: var(--color-main); margin-bottom: 15px">没入型イマージョン教育</h3>
+          <p>
+            教室内では基本的に英語を使用。アート、サイエンス、ゲームなどのアクティビティを英語で行うことで、
+            教科書だけでは学べない生きた表現を習得します。
+          </p>
+
+          <h3 style="color: var(--color-main); margin-bottom: 15px">フォニックス・メソッド</h3>
+          <p>
+            英語圏の子どもたちが学ぶ読み書きのルール「フォニックス」を導入。
+            初めて見る単語でも正しく発音し、読めるようになる基礎力を徹底して固めます。
+          </p>
+
+          <h3 style="color: var(--color-main); margin-bottom: 15px">家庭学習サポート</h3>
+          <p>
+            スクールだけでなく、ご家庭でも学習を継続できるよう、
+            専用のWeb教材やアプリを提供。保護者様へのフィードバックも定期的に行います。
+          </p>
+        </div>
+        <div style="display: flex; flex-direction: column; gap: 20px">
+          <div class="image-container" style="height: 200px">
+            <img src="https://images.unsplash.com/photo-1544716278-ca5e3f4abd8c?w=800" alt="Reading book" data-height-listener-added="true">
+          </div>
+          <div class="image-container" style="height: 200px">
+            <img src="https://images.unsplash.com/photo-1577896851231-70ef18881754?w=800" alt="Learning Phonics" data-height-listener-added="true">
+          </div>
+          <div class="image-container" style="height: 200px">
+            <img src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=800" alt="Study time" data-height-listener-added="true">
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 6. Food -->
+    <section class="page">
+      <div class="header-logo">BASE KIDS</div>
+      <h2 class="page-title">ORGANIC FOOD</h2>
+
+      <div class="image-container" style="height: 350px">
+        <img src="https://images.unsplash.com/photo-1498837167922-ddd27525d352?w=1600" alt="Healthy Vegetables" data-height-listener-added="true">
+      </div>
+
+      <div style="padding: 20px; background-color: var(--color-base); border-left: 5px solid var(--color-main)">
+        <h3 style="margin-bottom: 15px">体をつくる、心を満たす。</h3>
+        <p>
+          BASE KIDSでは、食事も教育の重要な一部と考えています。
+          成長期の子どもたちにとって、何を食べるかは将来の健康を左右する大きな問題です。
+        </p>
+        <ul style="list-style: none; margin-bottom: 20px">
+          <li style="margin-bottom: 10px">
+            ✅ <strong>可能な限りオーガニック</strong>：農薬や化学肥料を抑えた野菜を中心に使用。
+          </li>
+          <li style="margin-bottom: 10px">
+            ✅ <strong>完全無添加を目指して</strong>：化学調味料、保存料、着色料は原則使用しません。
+          </li>
+          <li style="margin-bottom: 10px">
+            ✅ <strong>手作りの温かさ</strong>：施設内のキッチンまたは提携オーガニックレストランから、作りたてを提供。
+          </li>
+        </ul>
+        <p>
+          アレルギー対応についても、個別にきめ細かく対応いたします。
+          みんなで同じテーブルを囲み、安心して食事を楽しむ時間も大切なコミュニケーションの場です。
+        </p>
+      </div>
+    </section>
+
+    <!-- 7. Fees - Preschool -->
+    <section class="page" style="background-color: var(--color-accent-1)">
+      <div class="header-logo">BASE KIDS</div>
+      <div style="background: white; padding: 40px; height: 100%; border-radius: 8px">
+        <h2 class="page-title" style="border-bottom-color: var(--color-accent-1)">FEES - 幼児コース</h2>
+        <p style="font-weight: 700">対象：年中〜年長 (4〜6歳)</p>
+
+        <div class="image-container" style="height: 200px">
+          <img src="https://images.unsplash.com/photo-1587654780291-39c9404d746b?w=1000" alt="Classroom details" data-height-listener-added="true">
+        </div>
+
+        <table class="table-custom">
+          <thead>
+            <tr>
+              <th>週回数</th>
+              <th>基本料金 (月額・税込)</th>
+              <th>おやつ代 (月額・税込)</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>週2回</td>
+              <td style="font-size: 18px; font-weight: 700">¥39,800</td>
+              <td>¥1,320</td>
+            </tr>
+            <tr>
+              <td>週3回</td>
+              <td style="font-size: 18px; font-weight: 700">¥49,800</td>
+              <td>¥1,980</td>
+            </tr>
+            <tr>
+              <td>週4回</td>
+              <td style="font-size: 18px; font-weight: 700">¥59,800</td>
+              <td>¥2,640</td>
+            </tr>
+            <tr style="background-color: #fff9e6">
+              <td>週5回</td>
+              <td style="font-size: 20px; font-weight: 700; color: #e67e22">¥67,800</td>
+              <td>¥3,300</td>
+            </tr>
+          </tbody>
+        </table>
+        <p style="font-size: 12px; margin-top: 10px; color: #666">※ 基本時間: 下校時〜19:00</p>
+      </div>
+    </section>
+
+    <!-- 8. Fees - Elementary -->
+    <section class="page" style="background-color: var(--color-accent-2)">
+      <div class="header-logo">BASE KIDS</div>
+      <div style="background: white; padding: 40px; height: 100%; border-radius: 8px">
+        <h2 class="page-title" style="border-bottom-color: var(--color-accent-2)">FEES - 小学生コース</h2>
+        <p style="font-weight: 700">対象：小学1〜4年生 (6〜10歳)</p>
+
+        <div class="image-container" style="height: 200px">
+          <img src="https://images.unsplash.com/photo-1509062522246-3755977927d7?w=1000" alt="Study desk" data-height-listener-added="true">
+        </div>
+
+        <table class="table-custom">
+          <thead>
+            <tr>
+              <th>週回数</th>
+              <th>基本料金 (月額・税込)</th>
+              <th>おやつ代 (月額・税込)</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>週3回</td>
+              <td style="font-size: 18px; font-weight: 700">¥51,800</td>
+              <td>¥1,980</td>
+            </tr>
+            <tr>
+              <td>週4回</td>
+              <td style="font-size: 18px; font-weight: 700">¥63,800</td>
+              <td>¥2,640</td>
+            </tr>
+            <tr style="background-color: #f0f8ff">
+              <td>週5回</td>
+              <td style="font-size: 20px; font-weight: 700; color: #2980b9">¥72,800</td>
+              <td>¥3,300</td>
+            </tr>
+          </tbody>
+        </table>
+        <p style="font-size: 12px; margin-top: 10px; color: #666">
+          ※ 基本時間: 下校時〜19:00<br>
+          ※ 小学生コースは学習習慣定着のため、週3回以上のご利用をお願いしております。
+        </p>
+      </div>
+    </section>
+
+    <!-- 9. Enrollment Fees -->
+    <section class="page">
+      <div class="header-logo">BASE KIDS</div>
+      <h2 class="page-title">ENROLLMENT FEES</h2>
+
+      <div class="image-container" style="height: 250px">
+        <img src="https://images.unsplash.com/photo-1453749024868-6978963342cd?w=1000" alt="Stationery" data-height-listener-added="true">
+      </div>
+
+      <div style="background: var(--color-base); padding: 30px; border-radius: 8px">
+        <h3 style="border-bottom: 2px solid #ddd; padding-bottom: 10px; margin-bottom: 20px">
+          入会時初期費用 (全コース共通)
+        </h3>
+
+        <div style="
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 15px;
+            border-bottom: 1px dashed #ddd;
+            padding-bottom: 5px;
+          ">
+          <span>入会金 (新規入会)</span>
+          <span class="fw-bold">¥11,000</span>
+        </div>
+        <div style="
+            background: var(--color-main);
+            color: white;
+            padding: 10px;
+            border-radius: 4px;
+            margin-bottom: 15px;
+            text-align: center;
+            font-weight: 700;
+          ">
+          🎉 開校キャンペーン適用で ¥0 (先着10名 / 6月まで)
+        </div>
+
+        <div style="
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 15px;
+            border-bottom: 1px dashed #ddd;
+            padding-bottom: 5px;
+          ">
+          <span>施設維持管理費 (6ヶ月分)</span>
+          <span class="fw-bold">¥12,980</span>
+        </div>
+        <p style="font-size: 12px; color: #666; margin-top: -10px">
+          ※ 3月〜8月／9月〜翌2月 想定。途中入会は月割り計算。
+        </p>
+
+        <div style="
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 15px;
+            border-bottom: 1px dashed #ddd;
+            padding-bottom: 5px;
+          ">
+          <span>会員費 (月額システム利用料)</span>
+          <span class="fw-bold">¥200 / 月</span>
+        </div>
+
+        <div style="
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 15px;
+            border-bottom: 1px dashed #ddd;
+            padding-bottom: 5px;
+          ">
+          <span>入会セット (ファイル・ガイド等)</span>
+          <span class="fw-bold">¥1,980</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- 10. Options -->
+    <section class="page">
+      <div class="header-logo">BASE KIDS</div>
+      <h2 class="page-title">OPTIONS</h2>
+
+      <div class="image-container" style="height: 200px">
+        <img src="https://images.unsplash.com/photo-1552422535-c45813c61732?w=1000" alt="Piano lesson" data-height-listener-added="true">
+      </div>
+
+      <div class="grid-2">
+        <div class="card">
+          <h3 style="font-size: 18px; margin-bottom: 10px; color: var(--color-main)">基本オプション</h3>
+          <ul style="list-style: none">
+            <li style="margin-bottom: 8px"><strong>延長利用:</strong> ¥450 / 30分</li>
+            <li style="margin-bottom: 8px"><strong>フォニックスWeb教材:</strong> ¥500 / 月</li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <h3 style="font-size: 18px; margin-bottom: 10px; color: var(--color-main)">食事オプション</h3>
+          <ul style="list-style: none">
+            <li style="margin-bottom: 8px"><strong>昼食 (長期休暇等):</strong> ¥980 / 食</li>
+            <li style="margin-bottom: 8px"><strong>夕食:</strong> ¥1,280 / 食</li>
+            <li style="font-size: 12px; color: #666">※ 安心安全食材・可能な限りオーガニック</li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <h3 style="font-size: 18px; margin-bottom: 10px; color: var(--color-main)">習い事オプション</h3>
+          <ul style="list-style: none">
+            <li style="margin-bottom: 8px"><strong>ピアノ (月4回):</strong><br>¥14,800〜¥19,800</li>
+            <li style="margin-bottom: 8px"><strong>そろばん (月4回):</strong><br>¥7,800〜¥9,800</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- 11. Spot Use -->
+    <section class="page">
+      <div class="header-logo">BASE KIDS</div>
+      <h2 class="page-title">SPOT USE</h2>
+
+      <div class="image-container" style="height: 300px">
+        <img src="https://images.unsplash.com/photo-1472162072942-cd5147eb3902?w=1000" alt="Kids playing blocks" data-height-listener-added="true">
+      </div>
+
+      <div style="padding: 30px; border: 2px solid var(--color-main); border-radius: 8px">
+        <h3 style="text-align: center; margin-bottom: 20px">平日スポット利用 (非会員OK)</h3>
+        <p style="text-align: center; margin-bottom: 30px">
+          急な用事や、お試しでの利用に。<br>
+          会員登録なしでもご利用いただけるプランです。
+        </p>
+
+        <div style="display: flex; justify-content: space-around; text-align: center">
+          <div>
+            <div style="font-size: 14px; color: #666">〜17:30</div>
+            <div style="font-size: 24px; font-weight: 700; color: var(--color-text)">¥6,600</div>
+          </div>
+          <div style="border-left: 1px solid #ddd"></div>
+          <div>
+            <div style="font-size: 14px; color: #666">〜18:30</div>
+            <div style="font-size: 24px; font-weight: 700; color: var(--color-text)">¥8,800</div>
+          </div>
+          <div style="border-left: 1px solid #ddd"></div>
+          <div>
+            <div style="font-size: 14px; color: #666">〜20:30</div>
+            <div style="font-size: 24px; font-weight: 700; color: var(--color-text)">¥11,800</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 12. Holiday Programs -->
+    <section class="page">
+      <div class="header-logo">BASE KIDS</div>
+      <h2 class="page-title">HOLIDAY PROGRAMS</h2>
+
+      <div class="image-container" style="height: 300px">
+        <img src="https://images.unsplash.com/photo-1502086223501-7ea6ecd79368?w=1000" alt="Summer fun" data-height-listener-added="true">
+      </div>
+
+      <div style="background-color: var(--color-accent-3); padding: 30px; border-radius: 8px">
+        <h3 style="margin-bottom: 15px">長期休暇特別プログラム (春・夏・冬)</h3>
+        <p>
+          学校がお休みの期間は、朝からの1日預かりに対応。<br>
+          サイエンス実験、クッキング、遠足など、長期休みならではの特別イベントも開催します。
+        </p>
+
+        <table class="table-custom" style="background: white; border-radius: 4px">
+          <tbody><tr>
+            <th colspan="2" style="background: #f9f9f9">デイパス (1日利用)</th>
+          </tr>
+          <tr>
+            <td>〜17:30</td>
+            <td class="text-right fw-bold">¥9,600</td>
+          </tr>
+          <tr>
+            <td>〜18:30</td>
+            <td class="text-right fw-bold">¥11,600</td>
+          </tr>
+          <tr>
+            <td>〜20:30</td>
+            <td class="text-right fw-bold">¥14,600</td>
+          </tr>
+        </tbody></table>
+
+        <div style="
+            background: white;
+            padding: 15px;
+            margin-top: 20px;
+            border-radius: 4px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+          ">
+          <span class="fw-bold">お得な回数券 (10回分)</span>
+          <span style="font-size: 24px; font-weight: 700; color: #e67e22">¥86,000</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- 13. Hawaii Summer School -->
+    <section class="page" style="padding: 0; position: relative; background: linear-gradient(180deg, #4fc3f7 0%, #0288d1 100%); color: white; overflow: hidden">
+      <div class="header-logo" style="color: white; opacity: 0.9">BASE KIDS</div>
+
+      <!-- Decorative Elements -->
+      <div style="position: absolute; top: -80px; right: -80px; width: 300px; height: 300px; background: radial-gradient(circle, rgba(255, 255, 255, 0.1) 0%, transparent 70%); border-radius: 50%;"></div>
+      <div style="position: absolute; bottom: -100px; left: -100px; width: 400px; height: 400px; background: radial-gradient(circle, rgba(255, 255, 255, 0.08) 0%, transparent 70%); border-radius: 50%;"></div>
+
+      <div style="height: 420px; margin: 30px 0 0; overflow: hidden; position: relative">
+        <img src="https://images.unsplash.com/photo-1559827260-dc66d52bef19?w=2000" style="width: 100%; height: 100%; object-fit: cover" alt="Hawaii Beach" data-height-listener-added="true">
+        <div style="position: absolute; inset: 0; background: linear-gradient(180deg, rgba(79, 195, 247, 0.3) 0%, rgba(2, 136, 209, 0.5) 100%);"></div>
+        
+        <!-- Floating Text on Image -->
+        <div style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); text-align: center; z-index: 10;">
+          <div style="font-size: 80px; font-weight: 900; line-height: 0.9; text-shadow: 0 4px 20px rgba(0, 0, 0, 0.4); letter-spacing: 0.05em">
+            HAWAII
+          </div>
+          <div style="font-size: 32px; font-weight: 700; letter-spacing: 0.2em; margin-top: 10px; text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3)">
+            SUMMER SCHOOL
+          </div>
+        </div>
+      </div>
+
+      <div style="padding: 45px 55px 55px">
+        <div style="width: 80px; height: 5px; background: white; margin-bottom: 30px; border-radius: 3px; box-shadow: 0 2px 8px rgba(255, 255, 255, 0.3);"></div>
+
+        <p style="font-size: 17px; line-height: 2.1; letter-spacing: 0.03em; margin-bottom: 30px">
+          毎年夏、ハワイ名門一流校でのサマースクールを<br class="hidden">提携特別料金で開催。<br>
+          「いつか海外に」ではなく、<strong style="background: rgba(255, 255, 255, 0.2); padding: 2px 8px; border-radius: 4px">具体的な出口を用意する。</strong><br>
+          本場の空気の中で過ごす時間は、<br class="hidden">英語学習が「目的」から「選択肢」に変わる瞬間です。
+        </p>
+
+        <div style="background: rgba(255, 255, 255, 0.15); padding: 20px; border-radius: 12px; border: 2px solid rgba(255, 255, 255, 0.3); backdrop-filter: blur(10px)">
+          <p style="font-size: 16px; font-weight: 700; margin-bottom: 0; text-align: center">
+            🌺 家庭の納得感と、子どもの自信が圧倒的に跳ね上がります 🌺
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- 14. Opening Campaign -->
+    <section class="page" style="padding: 0; position: relative; background: linear-gradient(135deg, #a8d5ba 0%, #ffffff 100%); overflow: hidden">
+      <div class="header-logo">BASE KIDS</div>
+
+      <!-- Decorative Circles -->
+      <div style="position: absolute; top: -150px; left: -150px; width: 500px; height: 500px; background: radial-gradient(circle, rgba(168, 213, 186, 0.3) 0%, transparent 70%); border-radius: 50%;"></div>
+      <div style="position: absolute; bottom: -100px; right: -100px; width: 400px; height: 400px; background: radial-gradient(circle, rgba(255, 229, 180, 0.25) 0%, transparent 70%); border-radius: 50%;"></div>
+
+      <div style="position: relative; z-index: 10; padding: 55px; text-align: center">
+        <div style="margin-bottom: 50px; margin-top: 30px">
+          <div style="display: inline-block; background: rgba(231, 76, 60, 0.1); padding: 8px 20px; border-radius: 30px; margin-bottom: 15px">
+            <span style="font-size: 11px; letter-spacing: 0.15em; color: #e74c3c; font-weight: 800">LIMITED OFFER</span>
+          </div>
+          <h2 style="font-size: 48px; font-weight: 900; color: var(--color-text); margin-bottom: 12px; letter-spacing: 0.05em">
+            OPENING CAMPAIGN
+          </h2>
+          <p style="font-size: 18px; letter-spacing: 0.12em; margin-bottom: 0; font-weight: 600; color: #666">開校記念・特別キャンペーン</p>
+        </div>
+
+        <div style="
+            background: white;
+            padding: 50px 45px;
+            border-radius: 20px;
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+            display: inline-block;
+            width: 100%;
+            max-width: 700px;
+            position: relative;
+            border: 3px solid rgba(168, 213, 186, 0.3);
+          ">
+          <!-- Decorative Corner -->
+          <div style="position: absolute; top: -2px; left: -2px; width: 60px; height: 60px; border-top: 5px solid #a8d5ba; border-left: 5px solid #a8d5ba; border-radius: 20px 0 0 0;"></div>
+          <div style="position: absolute; bottom: -2px; right: -2px; width: 60px; height: 60px; border-bottom: 5px solid #b4d7e8; border-right: 5px solid #b4d7e8; border-radius: 0 0 20px 0;"></div>
+
+          <div style="font-size: 22px; color: #888; margin-bottom: 15px; font-weight: 600">入会金 <span style="text-decoration: line-through; color: #ccc">¥11,000</span> が...</div>
+          <div style="font-size: 100px; font-weight: 900; color: #e74c3c; line-height: 1; margin-bottom: 25px; text-shadow: 0 4px 12px rgba(231, 76, 60, 0.3);">¥0</div>
+          <div style="display: flex; justify-content: center; gap: 15px; margin-bottom: 0; flex-wrap: wrap">
+            <span style="background: linear-gradient(135deg, #2c3e50 0%, #34495e 100%); color: white; padding: 10px 22px; border-radius: 30px; font-size: 14px; font-weight: 800; letter-spacing: 0.05em; box-shadow: 0 4px 12px rgba(44, 62, 80, 0.3);">先着 10名様 限定</span>
+            <span style="background: linear-gradient(135deg, #e74c3c 0%, #c0392b 100%); color: white; padding: 10px 22px; border-radius: 30px; font-size: 14px; font-weight: 800; letter-spacing: 0.05em; box-shadow: 0 4px 12px rgba(231, 76, 60, 0.3);">6月末まで</span>
+          </div>
+        </div>
+      </div>
+
+      <div style="padding: 0 55px 55px; position: relative; z-index: 10">
+        <div class="image-container" style="height: 320px; border-radius: 20px; box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2)">
+          <img src="https://images.unsplash.com/photo-1503919545889-aef636e10ad4?w=1600" alt="Happy Kids Learning" data-height-listener-added="true">
+        </div>
+      </div>
+    </section>
+
+    <!-- 15. Daily Schedule -->
+    <section class="page">
+      <div class="header-logo">BASE KIDS</div>
+      <h2 class="page-title">DAILY SCHEDULE</h2>
+
+      <div class="grid-2">
+        <div>
+          <div style="position: relative; border-left: 3px solid var(--color-main); padding-left: 30px; margin-left: 10px">
+            <div style="margin-bottom: 40px">
+              <span style="
+                  background: var(--color-main);
+                  color: white;
+                  padding: 2px 8px;
+                  border-radius: 4px;
+                  font-weight: 700;
+                ">14:00</span>
+              <h4 style="font-size: 18px; margin-top: 5px">来校・自由時間</h4>
+              <p style="font-size: 14px; color: #666; margin-bottom: 0">
+                学校から到着。宿題をしたり、本を読んだりしてリラックス。
+              </p>
+            </div>
+            <div style="margin-bottom: 40px">
+              <span style="
+                  background: var(--color-main);
+                  color: white;
+                  padding: 2px 8px;
+                  border-radius: 4px;
+                  font-weight: 700;
+                ">15:00</span>
+              <h4 style="font-size: 18px; margin-top: 5px">English Lesson</h4>
+              <p style="font-size: 14px; color: #666; margin-bottom: 0">
+                レベル別のグループレッスン。フォニックスや会話を中心に。
+              </p>
+            </div>
+            <div style="margin-bottom: 40px">
+              <span style="
+                  background: var(--color-accent-2);
+                  color: #333;
+                  padding: 2px 8px;
+                  border-radius: 4px;
+                  font-weight: 700;
+                ">16:00</span>
+              <h4 style="font-size: 18px; margin-top: 5px">Snack Time</h4>
+              <p style="font-size: 14px; color: #666; margin-bottom: 0">
+                手作りおやつでエネルギーチャージ。ここでも会話は英語で。
+              </p>
+            </div>
+            <div style="margin-bottom: 40px">
+              <span style="
+                  background: var(--color-main);
+                  color: white;
+                  padding: 2px 8px;
+                  border-radius: 4px;
+                  font-weight: 700;
+                ">16:30</span>
+              <h4 style="font-size: 18px; margin-top: 5px">Activity / Program</h4>
+              <p style="font-size: 14px; color: #666; margin-bottom: 0">
+                アート、サイエンス、公園遊びなど、日替わりのアクティビティ。
+              </p>
+            </div>
+            <div style="margin-bottom: 40px">
+              <span style="background: #999; color: white; padding: 2px 8px; border-radius: 4px; font-weight: 700">18:30</span>
+              <h4 style="font-size: 18px; margin-top: 5px">Dinner (Option)</h4>
+              <p style="font-size: 14px; color: #666; margin-bottom: 0">
+                希望者はオーガニック夕食。みんなで食べるから美味しい。
+              </p>
+            </div>
+            <div>
+              <span style="background: #333; color: white; padding: 2px 8px; border-radius: 4px; font-weight: 700">19:00</span>
+              <h4 style="font-size: 18px; margin-top: 5px">Good bye!</h4>
+              <p style="font-size: 14px; color: #666; margin-bottom: 0">保護者様のお迎え。今日あったことを報告。</p>
+            </div>
+          </div>
+        </div>
+
+        <div style="display: flex; flex-direction: column; gap: 20px">
+          <div class="image-container" style="height: 250px">
+            <img src="https://images.unsplash.com/photo-1503454537195-1dcabb73ffb9?w=800" alt="Activity" data-height-listener-added="true">
+          </div>
+          <div class="image-container" style="height: 250px">
+            <img src="https://images.unsplash.com/photo-1610832958506-aa56368176cf?w=800" alt="Organic snack time" data-height-listener-added="true">
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 16. Facility & Safety -->
+    <section class="page" style="background-color: #f0f8ff">
+      <div class="header-logo">BASE KIDS</div>
+      <div style="background: white; padding: 40px; height: 100%; border-radius: 8px">
+        <h2 class="page-title" style="border-bottom-color: var(--color-accent-2)">FACILITY &amp; SAFETY</h2>
+
+        <div class="image-container" style="height: 350px">
+          <img src="https://images.unsplash.com/photo-1497366216548-37526070297c?w=1600" alt="Clean Facility" data-height-listener-added="true">
+        </div>
+
+        <div class="grid-2">
+          <div>
+            <h3 style="color: #2980b9; margin-bottom: 15px">安心できる環境づくり</h3>
+            <ul style="list-style: none">
+              <li class="mb-20">
+                <strong>☀️ 明るく清潔な教室</strong><br>
+                大きな窓から自然光が入り、風通しの良い空間。空気清浄機も完備。
+              </li>
+              <li class="mb-20">
+                <strong>🌲 自然素材の家具</strong><br>
+                子どもたちが触れる場所には、温かみのある木材を使用。
+              </li>
+            </ul>
+          </div>
+          <div>
+            <h3 style="color: #2980b9; margin-bottom: 15px">安全への取り組み</h3>
+            <ul style="list-style: none">
+              <li class="mb-20">
+                <strong>🔒 セキュリティ完備</strong><br>
+                入退室管理システムと防犯カメラで、大切なお子様を見守ります。
+              </li>
+              <li class="mb-20">
+                <strong>🚑 救急対応</strong><br>
+                スタッフは救命講習を受講済み。近隣の医療機関とも連携しています。
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 17. Voices -->
+    <section class="page">
+      <div class="header-logo">BASE KIDS</div>
+      <h2 class="page-title">VOICES</h2>
+      <p class="mb-20">BASE KIDSに通う保護者様の声をご紹介します。</p>
+
+      <div style="display: flex; flex-direction: column; gap: 30px">
+        <div style="background: var(--color-accent-1); padding: 30px; border-radius: 16px; position: relative">
+          <p style="font-weight: 700; font-size: 18px; margin-bottom: 10px">「英語が生活の一部になりました」</p>
+          <p style="font-size: 14px; margin-bottom: 0">
+            家でも突然英語の歌を口ずさんだり、「これ英語でなんて言うの？」と聞いてきたり。
+            勉強させられている感じが全くなく、自然に楽しんでいるのが嬉しいです。
+          </p>
+          <div style="text-align: right; font-size: 12px; margin-top: 10px; font-weight: 700">
+            —— 年長 女の子のお母様
+          </div>
+        </div>
+
+        <div style="background: var(--color-main); color: white; padding: 30px; border-radius: 16px; position: relative">
+          <p style="font-weight: 700; font-size: 18px; margin-bottom: 10px">
+            「オーガニック給食で安心して預けられます」
+          </p>
+          <p style="font-size: 14px; margin-bottom: 0">
+            共働きで食事の栄養バランスが気になっていましたが、ここでは手作りの安全な夕食が食べられるので本当に助かっています。
+            子どもも「野菜が美味しかった！」と報告してくれます。
+          </p>
+          <div style="text-align: right; font-size: 12px; margin-top: 10px; font-weight: 700">
+            —— 小学2年生 男の子のお父様
+          </div>
+        </div>
+
+        <div style="background: var(--color-accent-2); padding: 30px; border-radius: 16px; position: relative">
+          <p style="font-weight: 700; font-size: 18px; margin-bottom: 10px">
+            「ハワイサマースクールで自信がつきました」
+          </p>
+          <p style="font-size: 14px; margin-bottom: 0">
+            初めての海外体験でしたが、現地の学校に通うことで「英語が通じた！」という大きな自信になったようです。
+            帰国後も英語学習へのモチベーションが格段に上がりました。
+          </p>
+          <div style="text-align: right; font-size: 12px; margin-top: 10px; font-weight: 700">
+            —— 小学3年生 女の子のお母様
+          </div>
+        </div>
+      </div>
+
+      <div class="image-container" style="height: 200px; margin-top: 40px">
+        <img src="https://images.unsplash.com/photo-1536640712-4d4c36ff0e4e?w=1000" alt="Happy family" data-height-listener-added="true">
+      </div>
+    </section>
+
+    <!-- 18. FAQ -->
+    <section class="page">
+      <div class="header-logo">BASE KIDS</div>
+      <h2 class="page-title">FAQ</h2>
+
+      <div class="image-container" style="height: 250px">
+        <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=1000" alt="Teacher and student" data-height-listener-added="true">
+      </div>
+
+      <div style="display: flex; flex-direction: column; gap: 20px">
+        <div style="border-bottom: 1px solid #eee; padding-bottom: 20px">
+          <h3 style="color: var(--color-main); font-size: 18px; margin-bottom: 5px">
+            Q. 英語が全く初めてでも大丈夫ですか？
+          </h3>
+          <p style="margin-bottom: 0">
+            A.
+            はい、全く問題ありません。お子様のレベルに合わせたクラス分けを行い、日本人スタッフもサポートに入りますので、安心してスタートしていただけます。
+          </p>
+        </div>
+
+        <div style="border-bottom: 1px solid #eee; padding-bottom: 20px">
+          <h3 style="color: var(--color-main); font-size: 18px; margin-bottom: 5px">Q. アレルギー対応は可能ですか？</h3>
+          <p style="margin-bottom: 0">
+            A.
+            はい、可能な限り対応いたします。入会時にアレルギーの詳細をお伺いし、除去食や代替食をご提案させていただきますので、個別にご相談ください。
+          </p>
+        </div>
+
+        <div style="border-bottom: 1px solid #eee; padding-bottom: 20px">
+          <h3 style="color: var(--color-main); font-size: 18px; margin-bottom: 5px">Q. 送迎サービスはありますか？</h3>
+          <p style="margin-bottom: 0">
+            A.
+            現在、送迎サービスは行っておりません。保護者様による送迎、またはお子様ご自身での入退室（メール通知あり）をお願いしております。
+          </p>
+        </div>
+
+        <div>
+          <h3 style="color: var(--color-main); font-size: 18px; margin-bottom: 5px">Q. 見学や体験はできますか？</h3>
+          <p style="margin-bottom: 0">
+            A.
+            はい、随時受け付けております。実際のクラスの雰囲気や給食の試食なども可能ですので、お気軽にお問い合わせフォームよりご予約ください。
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- 19. Access & Contact -->
+    <section class="page">
+      <div class="header-logo">BASE KIDS</div>
+      <h2 class="page-title">ACCESS &amp; CONTACT</h2>
+
+      <div class="image-container" style="height: 400px">
+        <img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1600" alt="Modern building at Kashiwanoha" data-height-listener-added="true">
+      </div>
+
+      <div style="background: var(--color-base); padding: 40px; text-align: center">
+        <h3 style="font-size: 24px; margin-bottom: 20px">BASE KIDS 柏の葉キャンパス校</h3>
+
+        <p style="margin-bottom: 5px">〒277-0871</p>
+        <p style="font-weight: 700; font-size: 18px; margin-bottom: 30px">
+          千葉県柏市若柴178-4<br>
+          三井ガーデンホテル柏の葉内
+        </p>
+
+        <div style="display: inline-block; text-align: left">
+          <p style="margin-bottom: 10px"><strong>📞 TEL:</strong> 04-71XX-XXXX</p>
+          <p style="margin-bottom: 10px"><strong>✉️ MAIL:</strong> <a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="b7ded9d1d8f7d5d6c4d2dcded3c49adcd6c4dfdec0d699d4d8da">[email&#160;protected]</a></p>
+          <p style="margin-bottom: 0"><strong>🕒 OPEN:</strong> 平日 13:00 - 20:00</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- 20. Recruiting -->
+    <section class="page" style="background-color: var(--color-main)">
+      <div class="header-logo">BASE KIDS</div>
+
+      <div style="
+          background: white;
+          padding: 40px;
+          height: 100%;
+          border-radius: 8px;
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+          text-align: center;
+        ">
+        <h2 class="page-title" style="border-bottom: none; font-size: 48px; color: var(--color-main)">RECRUITING</h2>
+        <p style="font-size: 20px; font-weight: 700; margin-bottom: 40px">私たちと一緒に働きませんか？</p>
+
+        <div class="image-container" style="height: 300px; margin-bottom: 40px">
+          <img src="https://images.unsplash.com/photo-1524178232363-1fb2b075b955?w=1000" alt="Teachers with children" data-height-listener-added="true">
+        </div>
+
+        <p style="margin-bottom: 30px">
+          現在、BASE KIDSでは情熱を持ったオープニングスタッフ・講師を募集予定です。<br>
+          英語教育、幼児教育、栄養士など、子どもたちの未来を支えるプロフェッショナルをお待ちしています。
+        </p>
+
+        <div style="font-size: 60px; font-weight: 900; color: #e74c3c; transform: rotate(-5deg)">Coming Soon</div>
+
+        <p style="margin-top: 20px; font-size: 14px; color: #999">詳細はWebサイトにて近日公開予定</p>
+      </div>
+    </section>
+
+    <!-- 21. Back Cover -->
+    <section class="page" style="padding: 0; position: relative; background: linear-gradient(0deg, #ffffff 0%, #fafaf9 100%)">
+      <!-- Top Gradient Line -->
+      <div style="position: absolute; top: 0; left: 0; width: 100%; height: 8px; background: linear-gradient(90deg, #a8d5ba 0%, #b4d7e8 50%, #ffe5b4 100%);"></div>
+
+      <div style="
+          position: absolute;
+          inset: 0;
+          background-image: url('https://images.unsplash.com/photo-1529390003875-44306b32a58f?w=2000');
+          background-size: cover;
+          background-position: center;
+          opacity: 0.06;
+        "></div>
+
+      <!-- Decorative Elements -->
+      <div style="position: absolute; top: -120px; right: -120px; width: 450px; height: 450px; background: radial-gradient(circle, rgba(168, 213, 186, 0.12) 0%, transparent 70%); border-radius: 50%;"></div>
+      <div style="position: absolute; bottom: -100px; left: -100px; width: 400px; height: 400px; background: radial-gradient(circle, rgba(180, 215, 232, 0.1) 0%, transparent 70%); border-radius: 50%;"></div>
+
+      <div style="
+          position: relative;
+          z-index: 10;
+          height: 100%;
+          padding: 70px 60px 60px;
+          display: flex;
+          flex-direction: column;
+          justify-content: space-between;
+          align-items: center;
+          text-align: center;
+        ">
+        <!-- Top Decorative Line -->
+        <div style="width: 2px; height: 80px; background: linear-gradient(180deg, transparent 0%, #a8d5ba 100%); margin-bottom: 40px"></div>
+
+        <!-- Main Message Section -->
+        <div style="flex: 1; display: flex; flex-direction: column; justify-content: center; align-items: center">
+          <div style="margin-bottom: 50px">
+            <p style="
+                font-size: 30px;
+                font-weight: 800;
+                color: var(--color-text);
+                margin-bottom: 0;
+                letter-spacing: 0.12em;
+                line-height: 1.8;
+                text-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+              ">
+              すべての子どもに、<br>世界を選べる力を。
+            </p>
+            <div style="width: 100px; height: 3px; background: linear-gradient(90deg, transparent 0%, #a8d5ba 50%, transparent 100%); margin: 30px auto;"></div>
+          </div>
+
+          <!-- Brand Section -->
+          <div style="margin-bottom: 40px">
+            <h1 style="font-size: 75px; font-weight: 900; line-height: 0.9; margin-bottom: 20px; letter-spacing: -0.04em; color: #2c3e50; text-shadow: 0 4px 8px rgba(0, 0, 0, 0.08)">
+              BASE<br>KIDS
+            </h1>
+            <div style="
+                width: 120px;
+                height: 5px;
+                background: linear-gradient(90deg, #a8d5ba 0%, #b4d7e8 50%, #2c3e50 100%);
+                margin: 0 auto 20px;
+                border-radius: 3px;
+                box-shadow: 0 2px 8px rgba(168, 213, 186, 0.3);
+              "></div>
+            <p style="font-size: 12px; letter-spacing: 0.25em; font-weight: 700; color: #888">KASHIWA-NO-HA CAMPUS</p>
+          </div>
+        </div>
+
+        <!-- Bottom Contact Section -->
+        <div style="padding-top: 40px; border-top: 2px solid #e0e0e0; width: 100%">
+          <div style="margin-bottom: 15px">
+            <p style="font-size: 13px; color: #999; margin-bottom: 5px; letter-spacing: 0.1em">WEB</p>
+            <p style="font-size: 15px; font-weight: 700; color: #2c3e50; margin-bottom: 0">https://basekids-kashiwa.com</p>
+          </div>
+          <div style="display: flex; justify-content: center; gap: 30px; font-size: 12px; color: #666">
+            <div>
+              <span style="color: #999">TEL:</span> <span style="font-weight: 700">04-71XX-XXXX</span>
+            </div>
+            <div>
+              <span style="color: #999">MAIL:</span> <span style="font-weight: 700"><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="d9b0b7bfb699bbb8aabcb2b0bdaaf4b2b8aab1b0aeb8f7bab6b4">[email&#160;protected]</a></span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  
+
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script></body></html>
