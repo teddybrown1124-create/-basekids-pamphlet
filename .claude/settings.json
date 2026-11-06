@@ -1,0 +1,11 @@
+{
+  "permissions": {
+    "allow": [
+      "mcp__4c9d9ba2-fae4-4bfa-bf89-c4d90546abf9",
+      "mcp__composio",
+      "mcp__Gmail",
+      "mcp__Google_Calendar",
+      "mcp__Google_Drive"
+    ]
+  }
+}
